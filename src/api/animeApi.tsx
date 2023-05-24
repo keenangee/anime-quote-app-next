@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 interface Quote {
   quotePath: string[];
 }

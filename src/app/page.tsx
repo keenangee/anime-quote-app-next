@@ -6,6 +6,8 @@ import QuoteSection from "@/components/QuoteSection";
 import SearchSection from "@/components/SearchSection";
 import { useState } from "react";
 
+export const runtime = "edge";
+
 export default function Home() {
   const [quotePath, setQuotePath] = useState<string[]>([]);
   return (
