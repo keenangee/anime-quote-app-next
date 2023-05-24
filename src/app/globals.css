@@ -2,26 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+html {
+  background: url(../../public/anime-hero-50.png) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Bangers", cursive;
+  font-size: 16px;
+  color: rgb(0, 0, 0);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.text-shadow-light {
+  text-shadow: rgb(255, 255, 255) 0.2rem 0.1rem 0.1rem;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.text-shadow-dark {
+  text-shadow: rgb(0, 0, 0) 0.2rem 0.2rem 0.2rem;
+}
+
+.text-shadow-primary {
+  text-shadow: #ff0000 0.2rem 0.1rem 0.1rem;
+}
+a {
+  text-decoration: none;
+  color: #ff0000;
 }
