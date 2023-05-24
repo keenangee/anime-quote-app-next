@@ -1,11 +1,10 @@
-import { type } from "os";
 import { ChangeEvent, FormEvent, useState } from "react";
 
 interface SearchSectionProps {
   setQuotePath: (quotePath: string[]) => void;
 }
 
-const searchForm = ({ setQuotePath }: SearchSectionProps) => {
+const SearchForm = ({ setQuotePath }: SearchSectionProps) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [searchType, setSearchType] = useState<string>("character");
 
@@ -72,4 +71,4 @@ const searchForm = ({ setQuotePath }: SearchSectionProps) => {
   );
 };
 
-export default searchForm;
+export default SearchForm;
