@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Bangers } from "@next/font/google";
+import { Bangers } from "next/font/google";
 
 const bangers = Bangers({
   weight: "400",
