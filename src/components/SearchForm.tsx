@@ -1,5 +1,5 @@
 import { type } from "os";
-import { useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 interface SearchSectionProps {
   setQuotePath: (quotePath: string[]) => void;
@@ -9,11 +9,11 @@ const searchForm = ({ setQuotePath }: SearchSectionProps) => {
   const [searchTerm, setSearchTerm] = useState<string>("");
   const [searchType, setSearchType] = useState<string>("character");
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchTerm(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setQuotePath([
       `random/${searchType}?${
