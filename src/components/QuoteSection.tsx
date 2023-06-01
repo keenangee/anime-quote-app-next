@@ -46,7 +46,7 @@ const QuoteSection = ({ quotePath }: QuoteSectionProps) => {
         {/* <h2>Oh no... we can&apos;t find that one</h2> */}
         <h2>
           The api is at <span className=" font-mono italic font-bold">0</span>
-          <span className="font-mono italic font-bold text-primary">
+          <span className="font-mono italic font-bold text-primary text-shadow-small">
             hp
           </span>{" "}
           ... Trying to find senzu beans{" "}
