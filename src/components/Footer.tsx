@@ -4,10 +4,10 @@ const Footer: React.FC = () => {
       <p>
         Keenan Gee &copy; 2021 |{" "}
         <a
-          href="https://www.instagram.com/keenangee/"
+          href="https://www.linkedin.com/in/keenangee/"
           className="text-shadow-dark"
         >
-          Instagram
+          LinkedIn
         </a>{" "}
         |{" "}
         <a href="https://twitter.com/KeenanGee" className="text-shadow-dark">
