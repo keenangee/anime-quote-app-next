@@ -43,7 +43,9 @@ const QuoteSection = ({ quotePath }: QuoteSectionProps) => {
   if (error === true) {
     return (
       <div className=" flex justify-center items-center h-[50vh] bg-light text-center text-[1rem] sm:text-[2.5rem] lg:text-[3rem]">
-        {/* <h2>Oh no... we can&apos;t find that one</h2> */}
+        <h2>Oh no... we can&apos;t find that one</h2>
+        {/* 
+        this is for when api was/is down
         <h2>
           The api is at <span className=" font-mono italic font-bold">0</span>
           <span className="font-mono italic font-bold text-primary text-shadow-small">
@@ -67,7 +69,7 @@ const QuoteSection = ({ quotePath }: QuoteSectionProps) => {
               className=" max-h-[30px] sm:max-h-[50px] md:max-h-none"
             />
           </div>
-        </h2>
+        </h2> */}
       </div>
     );
   }
