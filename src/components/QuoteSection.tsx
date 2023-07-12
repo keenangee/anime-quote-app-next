@@ -14,6 +14,8 @@ interface Quote {
 const QuoteSection = ({ quotePath }: QuoteSectionProps) => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<boolean>(false);
+  const [firstLoad, setFirstLoad] = useState<boolean>(false);
+  const [failedCount, setFailedCount] = useState<number>(0);
   const [quote, setQuote] = useState<Quote>({
     anime: "",
     character: "",
@@ -32,20 +34,20 @@ const QuoteSection = ({ quotePath }: QuoteSectionProps) => {
         const data = await response.json();
         setQuote(data);
         setLoading(false);
+        setFirstLoad(true);
+        setFailedCount(0);
       } catch (error) {
         setError(true);
+        setFailedCount(failedCount + 1);
       } finally {
         setLoading(false);
       }
     })();
   }, [quotePath]);
 
-  if (error === true) {
+  if (failedCount > 3) {
     return (
       <div className=" flex justify-center items-center h-[50vh] bg-light text-center text-[1rem] sm:text-[2.5rem] lg:text-[3rem]">
-        {/* <h2>Oh no... we can&apos;t find that one</h2>
-        
-        this is for when api was/is down */}
         <h2>
           The api is at <span className=" font-mono italic font-bold">0</span>
           <span className="font-mono italic font-bold text-primary text-shadow-small">
@@ -72,6 +74,48 @@ const QuoteSection = ({ quotePath }: QuoteSectionProps) => {
         </h2>
       </div>
     );
+  }
+
+  if (error === true) {
+    {
+      if (firstLoad === false) {
+        return (
+          <div className=" flex justify-center items-center h-[50vh] bg-light text-center text-[1rem] sm:text-[2.5rem] lg:text-[3rem]">
+            <h2>
+              The api is at{" "}
+              <span className=" font-mono italic font-bold">0</span>
+              <span className="font-mono italic font-bold text-primary text-shadow-small">
+                hp
+              </span>{" "}
+              ... Trying to find senzu beans{" "}
+              <div className="flex flex-row items-center justify-center">
+                <img
+                  src="senzu_bean.png"
+                  alt="senzu bean"
+                  className=" max-h-[30px] sm:max-h-[50px] md:max-h-none"
+                />
+                <img
+                  src="senzu_bean.png"
+                  alt="senzu bean"
+                  className=" max-h-[30px] sm:max-h-[50px] md:max-h-none"
+                />
+                <img
+                  src="senzu_bean.png"
+                  alt="senzu bean"
+                  className=" max-h-[30px] sm:max-h-[50px] md:max-h-none"
+                />
+              </div>
+            </h2>
+          </div>
+        );
+      } else {
+        return (
+          <div className=" flex justify-center items-center h-[50vh] bg-light text-center text-[1rem] sm:text-[2.5rem] lg:text-[3rem]">
+            <h2>Oh no... we can&apos;t find that one</h2>
+          </div>
+        );
+      }
+    }
   }
 
   if (loading) {
